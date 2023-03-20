@@ -1,5 +1,7 @@
 const exphbs = require('express-handlebars')
 const express = require('express')
+const restaurantList = require('./restaurant.json')
+const restaurantListResults = restaurantList.results
 const app = express()
 const port = 3000
 
@@ -11,7 +13,12 @@ app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 
 app.get('/', (req, res) => {
-  res.render('index')
+  res.render('index', { restaurantList: restaurantList.results })
+})
+
+app.get('/restaurant/:id',(req, res) => {
+  const restaurant = restaurantListResults.find(restaurant => restaurant.id.toString() === req.params.id)
+  res.render('show', { restaurant: restaurant })
 })
 
 app.listen(port, () => {
