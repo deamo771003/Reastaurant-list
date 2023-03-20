@@ -12,13 +12,24 @@ app.use(express.static('public'))
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 
+// index
 app.get('/', (req, res) => {
   res.render('index', { restaurantList: restaurantList.results })
 })
 
-app.get('/restaurant/:id',(req, res) => {
+// show
+app.get('/restaurant/:id', (req, res) => {
   const restaurant = restaurantListResults.find(restaurant => restaurant.id.toString() === req.params.id)
   res.render('show', { restaurant: restaurant })
+})
+
+// search
+app.get('/search', (req, res) => {
+  const keyword = req.query.keyword
+  const restaurantList = restaurantListResults.filter(restaurant => {
+    return restaurant.name.toLowerCase().includes(keyword.toLowerCase())
+  })
+  res.render('index', { keyword: keyword, restaurantList: restaurantList })
 })
 
 app.listen(port, () => {
