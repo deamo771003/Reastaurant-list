@@ -59,5 +59,5 @@ Express is listening on localhost:3000
 http://localhost:3000
 ```
 
-## Contributor 專案開發人員
+## Contributor 開發人員
 [JimmyLin](https://github.com/deamo771003)
