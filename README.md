@@ -14,6 +14,8 @@ show:
 
 ## Environment SetUp 環境建置
 1. Node.js
+2. css
+3. Handlebars
 
 ## Installing 安裝流程
 1. Clone 此專案至本機電腦，打開你的 terminal  
