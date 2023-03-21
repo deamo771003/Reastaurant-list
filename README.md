@@ -19,7 +19,7 @@ show:
 
 ## Installing 安裝流程
 1. Clone 此專案至本機電腦，打開你的 terminal  
-|https://github.com/deamo771003/Reastaurant-list.git|
+```git clone https://github.com/deamo771003/Reastaurant-list.git```
 2. 開啟終端機(Terminal)，進入存放此專案的資料夾  
 ```cd restaurant-list```
 3. 安裝 npm 套件  
