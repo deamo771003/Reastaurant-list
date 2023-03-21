@@ -14,7 +14,7 @@ show:
 
 ## Environment SetUp 環境建置
 1. Node.js
-2. css
+2. CSS
 3. Handlebars
 
 ## Installing 安裝流程
