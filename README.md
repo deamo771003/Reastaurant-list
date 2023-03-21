@@ -45,4 +45,4 @@ Mongodb is connected!
 
 Contributor 專案開發人員
 
-[JimmyLin]<'https://github.com/deamo771003'>
+[JimmyLin](https://github.com/deamo771003)
