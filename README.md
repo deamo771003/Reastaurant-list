@@ -14,8 +14,6 @@ show:
 
 ## Environment SetUp 環境建置
 1. Node.js
-2. Express
-3. Express-handlebars
 
 ## Installing 安裝流程
 1. Clone 此專案至本機電腦，打開你的 terminal  
