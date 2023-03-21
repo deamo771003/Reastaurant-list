@@ -28,23 +28,23 @@ cd restaurant-list
 ```
 3. 安裝 npm 套件  
 ```
-在 Terminal 輸入 npm install 指令
+npm init -y
 ```
 4. 安裝 nodemon 套件  
 ```
-在 Terminal 輸入 npm install 指令
+npm install -g nodemon
 ```
 5. 安裝 express 套件  
 ```
-在 Terminal 輸入 npm install 指令
+npm i express
 ```
 6. 安裝 express-handlebars 套件  
 ```
-在 Terminal 輸入 npm install 指令
+npm i express-handlebars@3.0.2
 ```
 7. 安裝 handlebars 套件  
 ```
-在 Terminal 輸入 npm install 指令
+npm i express handlebars
 ```
 8. 啟動伺服器，執行 app.js 檔案  
 ```
