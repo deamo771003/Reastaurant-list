@@ -30,7 +30,7 @@ show:
 ```npm rum dev```
 6. 當 terminal 出現以下字樣，表示伺服器與資料庫已啟動並成功連結  
 ```Express is listening on localhost:3000```
-7. 現在，你可開啟任一瀏覽器瀏覽器輸入以下網址開始使用皮皮美食網囉！
+7. 現在，你可開啟任一瀏覽器瀏覽器輸入以下網址開始使用我的餐廳清單囉！  
 ```http://localhost:3000```
 
 ## Contributor 專案開發人員
