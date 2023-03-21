@@ -22,38 +22,47 @@ show:
 ```
 git clone https://github.com/deamo771003/Reastaurant-list.git
 ```
+
 2. 開啟終端機(Terminal)，進入存放此專案的資料夾  
 ```
 cd restaurant-list
 ```
+
 3. 安裝 npm 套件  
 ```
 npm init -y
 ```
+
 4. 安裝 nodemon 套件  
 ```
 npm install -g nodemon
 ```
+
 5. 安裝 express 套件  
 ```
 npm i express
 ```
+
 6. 安裝 express-handlebars 套件  
 ```
 npm i express-handlebars@3.0.2
 ```
+
 7. 安裝 handlebars 套件  
 ```
 npm i express handlebars
 ```
+
 8. 啟動伺服器，執行 app.js 檔案  
 ```
 npm rum dev
 ```
+
 9. 當 terminal 出現以下字樣，表示伺服器與資料庫已啟動並成功連結  
 ```
 Express is listening on localhost:3000
 ```
+
 10. 現在，你可開啟任一瀏覽器瀏覽器輸入以下網址開始使用我的餐廳清單囉！  
 ```
 http://localhost:3000
