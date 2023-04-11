@@ -5,6 +5,12 @@ const restaurantListResults = restaurantList.results
 const app = express()
 const port = 3000
 
+// router
+const routes = require('./routes')
+
+// mongoose
+require('./config/mongoose')
+
 // 導入public內的.css
 app.use(express.static('public'))
 
@@ -12,10 +18,14 @@ app.use(express.static('public'))
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 
-// index
-app.get('/', (req, res) => {
-  res.render('index', { restaurantList: restaurantList.results })
-})
+// setting body-parser
+app.use(express.urlencoded({ extended: true }))
+
+app.use(routes)
+// // home
+// app.get('/', (req, res) => {
+//   res.render('index', { restaurantList: restaurantListResults })
+// })
 
 // show
 app.get('/restaurant/:id', (req, res) => {
@@ -24,13 +34,17 @@ app.get('/restaurant/:id', (req, res) => {
 })
 
 // search
-app.get('/search', (req, res) => {
-  const keyword = req.query.keyword
-  const restaurantList = restaurantListResults.filter(restaurant => {
-    return restaurant.name.toLowerCase().includes(keyword.toLowerCase())
-  })
-  res.render('index', { keyword: keyword, restaurantList: restaurantList })
-})
+// app.get('/search', (req, res) => {
+//   const keyword = req.query.keyword // index.hbs內的name=keyword的物件回傳值
+//   const restaurantList = restaurantListResults.filter(restaurant => {
+//     return restaurant.name.toLowerCase().includes(keyword.toLowerCase())
+//   })
+//   res.render('index', { keyword: keyword, restaurantList: restaurantList })
+// })
+
+// new
+
+
 
 app.listen(port, () => {
   console.log(`Express is listening on localhost:${port}`)
