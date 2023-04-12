@@ -153,7 +153,7 @@
 
     <div class="col-md-4">
       <label for="validationServer07" class="form-label">Google Map 網址</label>
-      <input type="text" class="form-control" id="validationServer07" value="" name="google_map" required>
+      <input type="text" class="form-control" id="validationServer07" value="" name="map" required>
       <div id="validationServer07Feedback" class="valid-feedback">
         Looks good!
       </div>
@@ -161,15 +161,15 @@
         Input error!
       </div>
       <script>
-        const inputUrl = document.getElementById('validationServer07')
-        inputUrl.classList.add('is-invalid')
-        inputUrl.addEventListener("change", function () {
-          if (inputUrl.value.length > 0) {
-            inputUrl.classList.remove('is-invalid')
-            inputUrl.classList.add('is-valid')
+        const inputMap = document.getElementById('validationServer07')
+        inputMap.classList.add('is-invalid')
+        inputMap.addEventListener("change", function () {
+          if (inputMap.value.length > 0) {
+            inputMap.classList.remove('is-invalid')
+            inputMap.classList.add('is-valid')
           } else {
-            inputUrl.classList.remove('is-valid')
-            inputUrl.classList.add('is-invalid')
+            inputMap.classList.remove('is-valid')
+            inputMap.classList.add('is-invalid')
           }
         })
       </script>

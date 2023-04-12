@@ -8,7 +8,22 @@ router.get('/new', (req, res) => {
 })
 router.post('/', (req, res) => {
   const bodyName = req.body.name
-  return Restaurant.create({ name: bodyName })
+  const bodyCategory = req.body.category
+  const bodyLocation = req.body.location
+  const bodyPhone = req.body.phone
+  const bodyDescription = req.body.description
+  const bodyImage = req.body.image
+  const bodyMap = req.body.map
+
+  return Restaurant.create({
+    name: bodyName,
+    category: bodyCategory,
+    location: bodyLocation,
+    phone: bodyPhone,
+    description: bodyDescription,
+    image: bodyImage,
+    google_map: bodyMap
+  })
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
