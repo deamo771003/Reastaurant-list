@@ -26,7 +26,7 @@
     
     <div class="col-md-3">
       <label for="validationServer02" class="form-label">餐廳類別</label>
-      <select class="form-select" id="validationServer02" aria-describedby="validationServer02Feedback" selectedIndex="" required>
+      <select class="form-select" id="validationServer02" aria-describedby="validationServer02Feedback" selectedIndex="" name="category" required>
         <option selected disabled value="">Choose...</option>
         <option value="中東料理">中東料理</option>
         <option value="日式料理">日式料理</option>
@@ -58,7 +58,7 @@
 
     <div class="col-md-4">
       <label for="validationServer03" class="form-label">地址</label>
-      <input type="text" class="form-control" id="validationServer03" value="" placeholder="台北市北北區南南路123號3F" required>
+      <input type="text" class="form-control" id="validationServer03" value="" placeholder="台北市北北區南南路123號3F" name="location" required>
       <div id="validationServer02Feedback" class="valid-feedback">
         Looks good!
       </div>
@@ -81,7 +81,7 @@
     </div>
     <div class="col-md-4">
       <label for="validationServer04" class="form-label">手機號碼</label>
-      <input type="number" class="form-control" id="validationServer04" value="" placeholder="EX: 0912123456" required>
+      <input type="number" class="form-control" id="validationServer04" value="" placeholder="EX: 0912123456" name="phone" required>
       <div id="validationServer04Feedback" class="valid-feedback">
         Looks good!
       </div>
@@ -105,7 +105,7 @@
 
     <div class="col-md-4">
       <label for="validationServer05" class="form-label">介紹</label>
-      <input type="text" class="form-control" id="validationServer05" value="" required>
+      <input type="text" class="form-control" id="validationServer05" value="" name="description" required>
       <div id="validationServer05Feedback" class="valid-feedback">
         Looks good!
       </div>
@@ -129,7 +129,7 @@
 
     <div class="col-md-4">
       <label for="validationServer06" class="form-label">照片網址</label>
-      <input type="text" class="form-control" id="validationServer06" value="" required>
+      <input type="text" class="form-control" id="validationServer06" value="" name="image" required>
       <div id="validationServer06Feedback" class="valid-feedback">
         Looks good!
       </div>
@@ -138,6 +138,30 @@
       </div>
       <script>
         const inputUrl = document.getElementById('validationServer06')
+        inputUrl.classList.add('is-invalid')
+        inputUrl.addEventListener("change", function () {
+          if (inputUrl.value.length > 0) {
+            inputUrl.classList.remove('is-invalid')
+            inputUrl.classList.add('is-valid')
+          } else {
+            inputUrl.classList.remove('is-valid')
+            inputUrl.classList.add('is-invalid')
+          }
+        })
+      </script>
+    </div>
+
+    <div class="col-md-4">
+      <label for="validationServer07" class="form-label">Google Map 網址</label>
+      <input type="text" class="form-control" id="validationServer07" value="" name="google_map" required>
+      <div id="validationServer07Feedback" class="valid-feedback">
+        Looks good!
+      </div>
+      <div id="validationServer07Feedback" class="invalid-feedback">
+        Input error!
+      </div>
+      <script>
+        const inputUrl = document.getElementById('validationServer07')
         inputUrl.classList.add('is-invalid')
         inputUrl.addEventListener("change", function () {
           if (inputUrl.value.length > 0) {
