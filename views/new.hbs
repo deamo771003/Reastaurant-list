@@ -1,9 +1,8 @@
-
 <div class="ms-5 me-5 mt-3">
   <form class="row g-3" action="/restaurants" method="POST">
     <div class="col-md-4">
       <label for="validationServer01" class="form-label">餐廳名稱</label>
-      <input type="text" class="form-control" id="validationServer01" value="" required>
+      <input type="name" class="form-control" id="validationServer01" placeholder="name" name="name" required>
       <div id="validationServer01Feedback" class="valid-feedback" >
         Looks good!
       </div>
@@ -59,7 +58,7 @@
 
     <div class="col-md-4">
       <label for="validationServer03" class="form-label">地址</label>
-      <input type="text" class="form-control" id="validationServer03" value="" required>
+      <input type="text" class="form-control" id="validationServer03" value="" placeholder="台北市北北區南南路123號3F" required>
       <div id="validationServer02Feedback" class="valid-feedback">
         Looks good!
       </div>
@@ -81,8 +80,8 @@
       </script>
     </div>
     <div class="col-md-4">
-      <label for="validationServer04" class="form-label">電話</label>
-      <input type="number" class="form-control" id="validationServer04" value="" required>
+      <label for="validationServer04" class="form-label">手機號碼</label>
+      <input type="number" class="form-control" id="validationServer04" value="" placeholder="EX: 0912123456" required>
       <div id="validationServer04Feedback" class="valid-feedback">
         Looks good!
       </div>
@@ -107,10 +106,10 @@
     <div class="col-md-4">
       <label for="validationServer05" class="form-label">介紹</label>
       <input type="text" class="form-control" id="validationServer05" value="" required>
-      <div id="validationServer01Feedback" class="valid-feedback">
+      <div id="validationServer05Feedback" class="valid-feedback">
         Looks good!
       </div>
-      <div id="validationServer01Feedback" class="invalid-feedback">
+      <div id="validationServer05Feedback" class="invalid-feedback">
         Input error!
       </div>
       <script>
@@ -123,6 +122,30 @@
           } else {
             inputIntroduce.classList.remove('is-valid')
             inputIntroduce.classList.add('is-invalid')
+          }
+        })
+      </script>
+    </div>
+
+    <div class="col-md-4">
+      <label for="validationServer06" class="form-label">照片網址</label>
+      <input type="text" class="form-control" id="validationServer06" value="" required>
+      <div id="validationServer06Feedback" class="valid-feedback">
+        Looks good!
+      </div>
+      <div id="validationServer06Feedback" class="invalid-feedback">
+        Input error!
+      </div>
+      <script>
+        const inputUrl = document.getElementById('validationServer06')
+        inputUrl.classList.add('is-invalid')
+        inputUrl.addEventListener("change", function () {
+          if (inputUrl.value.length > 0) {
+            inputUrl.classList.remove('is-invalid')
+            inputUrl.classList.add('is-valid')
+          } else {
+            inputUrl.classList.remove('is-valid')
+            inputUrl.classList.add('is-invalid')
           }
         })
       </script>
