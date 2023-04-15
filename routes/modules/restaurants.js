@@ -37,6 +37,11 @@ router.get('/:id', (req, res) => {
     .catch(error => console.log(error))
 })
 
+// edit
+router.get('/:id/edit', (req, res) => {
+  res.render('edit')
+})
+
 // search
 router.get('/search', (req, res) => {
   const keyword = req.query.keyword

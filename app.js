@@ -4,6 +4,10 @@ const restaurantList = require('./restaurant.json')
 const restaurantListResults = restaurantList.results
 const app = express()
 const port = 3000
+const bodyParser = require('body-parser')
+
+// bodyParser
+app.use(bodyParser.urlencoded({ extended: true }))
 
 // router
 const routes = require('./routes')
