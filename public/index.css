@@ -78,6 +78,28 @@ header {
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
+.edit-button {
+  color: #4592af;
+  text-decoration: none;
+}
+
+.edit-button:hover {
+  color: #226089;
+  text-decoration: none;
+}
+
+.delete-button {
+  color: #4592af;
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+}
+
+.delete-button:hover {
+  color: #226089;
+  text-decoration: none;
+}
+
 @media screen and (max-width: 992px) {
 
   .card img {

@@ -5,9 +5,13 @@ const restaurantListResults = restaurantList.results
 const app = express()
 const port = 3000
 const bodyParser = require('body-parser')
+const methodOverride = require('method-override')
 
 // bodyParser
 app.use(bodyParser.urlencoded({ extended: true }))
+
+// PUT啟用並定義methodOverride
+app.use(methodOverride('_method'))
 
 // router
 const routes = require('./routes')

@@ -39,7 +39,39 @@ router.get('/:id', (req, res) => {
 
 // edit
 router.get('/:id/edit', (req, res) => {
-  res.render('edit')
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .lean()
+    .then(restaurant => res.render('edit', { restaurant: restaurant }))
+    .catch(error => console.log(error))
+})
+
+router.put('/:id', (req, res) => {
+  const id = req.params.id
+  const { name, category, location, phone, description, image, map } = req.body
+  return Restaurant.findById(id)
+    // .lean() // PUT .save無需使用lean
+    .then(restaurant => {
+      // restaurant.name = name
+      // restaurant.category = category
+      // restaurant.location = location
+      // restaurant.phone = phone
+      // restaurant.description = description
+      // restaurant.image = image
+      // restaurant.google_map = map
+      Object.assign(restaurant, {
+        name,
+        category,
+        location,
+        phone,
+        description,
+        image,
+        google_map: map
+      })
+      return restaurant.save()
+    })
+    .then(() => res.redirect(`/`))
+    .catch(error => console.log(error))
 })
 
 // search
@@ -54,6 +86,15 @@ router.get('/search', (req, res) => {
       })
       res.render('index', { restaurants: restaurantSearch })
     })
+    .catch(error => console.log(error))
+})
+
+// delete
+router.delete('/:id/delete', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .then(restaurant => restaurant.remove())
+    .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
 
