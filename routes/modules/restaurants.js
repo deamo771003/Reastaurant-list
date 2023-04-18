@@ -7,22 +7,15 @@ router.get('/new', (req, res) => {
   res.render('new')
 })
 router.post('/', (req, res) => {
-  const bodyName = req.body.name
-  const bodyCategory = req.body.category
-  const bodyLocation = req.body.location
-  const bodyPhone = req.body.phone
-  const bodyDescription = req.body.description
-  const bodyImage = req.body.image
-  const bodyMap = req.body.map
-
+  const { name, category, location, phone, description, image, map } = req.body
   return Restaurant.create({
-    name: bodyName,
-    category: bodyCategory,
-    location: bodyLocation,
-    phone: bodyPhone,
-    description: bodyDescription,
-    image: bodyImage,
-    google_map: bodyMap
+    name: name,
+    category: category,
+    location: location,
+    phone: phone,
+    description: description,
+    image: image,
+    google_map: map
   })
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
@@ -50,15 +43,7 @@ router.put('/:id', (req, res) => {
   const id = req.params.id
   const { name, category, location, phone, description, image, map } = req.body
   return Restaurant.findById(id)
-    // .lean() // PUT .save無需使用lean
     .then(restaurant => {
-      // restaurant.name = name
-      // restaurant.category = category
-      // restaurant.location = location
-      // restaurant.phone = phone
-      // restaurant.description = description
-      // restaurant.image = image
-      // restaurant.google_map = map
       Object.assign(restaurant, {
         name,
         category,
