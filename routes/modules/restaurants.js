@@ -4,7 +4,8 @@ const Restaurant = require('../../models/restaurant')
 
 // create
 router.get('/new', (req, res) => {
-  res.render('new')
+  const newCategory = ['中東料理', '日式料理', '義式料理', '美式料理', '酒吧', '咖啡廳']
+  res.render('new', { newCategory: newCategory })
 })
 router.post('/', (req, res) => {
   const { name, category, location, phone, description, image, map } = req.body
@@ -33,9 +34,10 @@ router.get('/:id', (req, res) => {
 // edit
 router.get('/:id/edit', (req, res) => {
   const id = req.params.id
+  const category = ['中東料理', '日式料理', '義式料理', '美式料理', '酒吧', '咖啡廳']
   return Restaurant.findById(id)
     .lean()
-    .then(restaurant => res.render('edit', { restaurant: restaurant }))
+    .then(restaurant => res.render('edit', { restaurant: restaurant, category: category }))
     .catch(error => console.log(error))
 })
 

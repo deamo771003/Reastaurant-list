@@ -29,13 +29,14 @@
       <label for="validationServer02" class="form-label">餐廳類別</label>
       <select class="form-select" id="validationServer02" aria-describedby="validationServer02Feedback" selectedIndex=""
         name="category" required>
-        <option selected disabled value="{{restaurant.category}}">Choose...</option>
-        <option value="中東料理">中東料理</option>
-        <option value="日式料理">日式料理</option>
-        <option value="義式料理">義式料理</option>
-        <option value="美式料理">美式料理</option>
-        <option value="酒吧">酒吧</option>
-        <option value="咖啡廳">咖啡廳</option>
+        <option value="Choose" disabled>Choose...</option>
+        {{#each category}}
+        {{#if (eq this ../restaurant.category)}}
+        <option value="{{this}}" selected>{{this}}</option>
+        {{else}}
+        <option value="{{this}}">{{this}}</option>
+        {{/if}}
+        {{/each}}
       </select>
       <div id="validationServer02Feedback" class="valid-feedback">
         Looks good!
@@ -57,6 +58,7 @@
         }
       })
     </script>
+
 
     <div class="col-md-4">
       <label for="validationServer03" class="form-label">地址</label>

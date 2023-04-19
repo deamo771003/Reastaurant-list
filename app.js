@@ -6,6 +6,13 @@ const app = express()
 const port = 3000
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
+const handlebars = require('handlebars');
+
+// handlebars eq function
+// === function
+handlebars.registerHelper('eq', function (a, b) {
+  return a === b;
+});
 
 // bodyParser
 app.use(bodyParser.urlencoded({ extended: true }))
