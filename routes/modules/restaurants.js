@@ -9,17 +9,7 @@ router.get('/new', (req, res) => {
   res.render('new', { newCategory: newCategory, newRating: newRating })
 })
 router.post('/', (req, res) => {
-  const { name, category, location, phone, description, image, google_map, rating } = req.body
-  return Restaurant.create({
-    name: name,
-    category: category,
-    location: location,
-    phone: phone,
-    description: description,
-    image: image,
-    google_map: google_map,
-    rating: rating
-  })
+  return Restaurant.create(req.body)
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
@@ -63,19 +53,9 @@ router.get('/:id/edit', (req, res) => {
 
 router.put('/:id', (req, res) => {
   const id = req.params.id
-  const { name, category, location, phone, description, image, google_map, rating } = req.body
   return Restaurant.findById(id)
     .then(restaurant => {
-      Object.assign(restaurant, {
-        name,
-        category,
-        location,
-        phone,
-        description,
-        image,
-        google_map,
-        rating
-      })
+      Object.assign(restaurant, req.body)
       return restaurant.save()
     })
     .then(() => res.redirect(`/`))
