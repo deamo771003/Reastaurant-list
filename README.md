@@ -63,7 +63,7 @@ npm i express mongoose
 8. MONGODB資料庫
 ```
 // 建立MONGODB資料庫，新增.env檔案並輸入以下代碼載入路徑
-MONGODB_URI=mongodb+srv://ID:<password>@cluster0.y2daaqv.mongodb.net/?retryWrites=true&w=majority
+MONGODB_URI=<MONGODB資料庫路徑>
 ```
 
 9. 啟動伺服器，執行 app.js 檔案  
