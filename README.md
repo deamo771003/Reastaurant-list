@@ -66,17 +66,22 @@ npm i express mongoose
 MONGODB_URI=<MONGODB資料庫路徑>
 ```
 
-9. 啟動伺服器，執行 app.js 檔案  
+9. 載入預設範例資料
 ```
-npm rum dev
+npm run seed
 ```
 
-10. 當 terminal 出現以下字樣，表示伺服器與資料庫已啟動並成功連結  
+10. 啟動伺服器，執行 app.js 檔案  
+```
+npm run dev
+```
+
+11. 當 terminal 出現以下字樣，表示伺服器與資料庫已啟動並成功連結  
 ```
 Express is listening on localhost:3000
 ```
 
-11. 現在，你可開啟任一瀏覽器瀏覽器輸入以下網址開始使用我的餐廳清單囉！  
+12. 現在，你可開啟任一瀏覽器瀏覽器輸入以下網址開始使用我的餐廳清單囉！  
 ```
 http://localhost:3000
 ```
