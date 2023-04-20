@@ -22,6 +22,23 @@ router.post('/', (req, res) => {
     .catch(error => console.log(error))
 })
 
+// search
+router.get('/search', (req, res) => {
+  const keyword = req.query.keyword
+  Restaurant.find()
+    .lean()
+    .sort({ _id: 'asc' })
+    .then(restaurants => {
+      const restaurantSearch = restaurants.filter(restaurant => {
+        return restaurant.name.toLowerCase().includes(keyword.toLowerCase()) ||
+          restaurant.category.toLowerCase().includes(keyword.toLowerCase())
+      })
+
+      res.render('index', { restaurants: restaurantSearch })
+    })
+    .catch(error => console.log(error))
+})
+
 // show
 router.get('/:id', (req, res) => {
   const id = req.params.id // 抓網址ID
@@ -58,21 +75,6 @@ router.put('/:id', (req, res) => {
       return restaurant.save()
     })
     .then(() => res.redirect(`/`))
-    .catch(error => console.log(error))
-})
-
-// search
-router.get('/search', (req, res) => {
-  const keyword = req.query.keyword
-  Restaurant.find()
-    .lean()
-    .sort({ _id: 'asc' })
-    .then(restaurants => {
-      const restaurantSearch = restaurants.filter(restaurant => {
-        return restaurant.name.toLowerCase().includes(keyword.toLowerCase())
-      })
-      res.render('index', { restaurants: restaurantSearch })
-    })
     .catch(error => console.log(error))
 })
 
