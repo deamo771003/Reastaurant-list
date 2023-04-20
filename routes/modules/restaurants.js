@@ -70,7 +70,7 @@ router.put('/:id', (req, res) => {
         phone,
         description,
         image,
-        google_map: google_map
+        google_map
       })
       return restaurant.save()
     })
