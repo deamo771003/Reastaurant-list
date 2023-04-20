@@ -5,10 +5,11 @@ const Restaurant = require('../../models/restaurant')
 // create
 router.get('/new', (req, res) => {
   const newCategory = ['中東料理', '日式料理', '義式料理', '美式料理', '酒吧', '咖啡廳']
-  res.render('new', { newCategory: newCategory })
+  const newRating = ['1', '2', '3', '4', '5']
+  res.render('new', { newCategory: newCategory, newRating: newRating })
 })
 router.post('/', (req, res) => {
-  const { name, category, location, phone, description, image, google_map } = req.body
+  const { name, category, location, phone, description, image, google_map, rating } = req.body
   return Restaurant.create({
     name: name,
     category: category,
@@ -16,7 +17,8 @@ router.post('/', (req, res) => {
     phone: phone,
     description: description,
     image: image,
-    google_map: google_map
+    google_map: google_map,
+    rating: rating
   })
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
@@ -52,15 +54,16 @@ router.get('/:id', (req, res) => {
 router.get('/:id/edit', (req, res) => {
   const id = req.params.id
   const category = ['中東料理', '日式料理', '義式料理', '美式料理', '酒吧', '咖啡廳']
+  const newRating = ['1', '2', '3', '4', '5']
   return Restaurant.findById(id)
     .lean()
-    .then(restaurant => res.render('edit', { restaurant: restaurant, category: category }))
+    .then(restaurant => res.render('edit', { restaurant: restaurant, category: category, newRating: newRating }))
     .catch(error => console.log(error))
 })
 
 router.put('/:id', (req, res) => {
   const id = req.params.id
-  const { name, category, location, phone, description, image, google_map } = req.body
+  const { name, category, location, phone, description, image, google_map, rating } = req.body
   return Restaurant.findById(id)
     .then(restaurant => {
       Object.assign(restaurant, {
@@ -70,7 +73,8 @@ router.put('/:id', (req, res) => {
         phone,
         description,
         image,
-        google_map
+        google_map,
+        rating
       })
       return restaurant.save()
     })

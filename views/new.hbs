@@ -175,6 +175,36 @@
       </script>
     </div>
 
+    <div class="col-md-3">
+      <label for="validationServer08" class="form-label">1-5星評分</label>
+      <select class="form-select" id="validationServer08" aria-describedby="validationServer08Feedback" selectedIndex=""
+        name="rating" required>
+        <option selected disabled value="">Choose...</option>
+        {{#each newRating}}
+        <option value="{{this}}">{{this}}</option>
+        {{/each}}
+      </select>
+      <div id="validationServer08Feedback" class="valid-feedback">
+        Looks good!
+      </div>
+      <div id="validationServer08Feedback" class="invalid-feedback">
+        Please select a valid state.
+      </div>
+    </div>
+    <script>
+      const inputRating = document.getElementById('validationServer08')
+      inputRating.classList.add('is-invalid')
+      inputRating.addEventListener("change", function () {
+        if (inputRating.selectedIndex > -1) {
+          inputRating.classList.remove('is-invalid')
+          inputRating.classList.add('is-valid')
+        } else {
+          inputRating.classList.remove('is-valid')
+          inputRating.classList.add('is-invalid')
+        }
+      })
+    </script>
+
     <div class="col-12">
       <button class="btn btn-primary" type="submit">Submit form</button>
     </div>
