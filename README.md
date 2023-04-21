@@ -13,6 +13,7 @@ show:
 3. 餐廳位置可點擊小圖示連結至google map
 4. 餐廳搜尋功能
 5. 新增/刪除/編輯餐廳資訊
+6. index排序功能
 
 ## Environment SetUp 環境建置
 1. Node.js
