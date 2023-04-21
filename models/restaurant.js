@@ -11,7 +11,8 @@ const restaurantSchema = new Schema({
   phone: String,
   google_map: String,
   rating: String,
-  description: String
+  description: String,
+  city: String
 })
 
 const Restaurant = mongoose.model('Restaurant', restaurantSchema)

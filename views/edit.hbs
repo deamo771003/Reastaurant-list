@@ -59,6 +59,39 @@
       })
     </script>
 
+    <div class="col-md-3">
+      <label for="validationServer09" class="form-label">城市</label>
+      <select class="form-select" id="validationServer09" aria-describedby="validationServer09Feedback" selectedIndex=""
+        name="city" required>
+        <option selected disabled value="">Choose...</option>
+        {{#each newCity}}
+        {{#if (eq this ../restaurant.city)}}
+        <option value="{{this}}" selected>{{this}}</option>
+        {{else}}
+        <option value="{{this}}">{{this}}</option>
+        {{/if}}
+        {{/each}}
+      </select>
+      <div id="validationServer09Feedback" class="valid-feedback">
+        Looks good!
+      </div>
+      <div id="validationServer09Feedback" class="invalid-feedback">
+        Please select a valid state.
+      </div>
+    </div>
+    <script>
+      const inputCity = document.getElementById('validationServer09')
+      inputCity.classList.add('is-valid')
+      inputCity.addEventListener("change", function () {
+        if (inputCity.selectedIndex > -1) {
+          inputCity.classList.remove('is-invalid')
+          inputCity.classList.add('is-valid')
+        } else {
+          inputCity.classList.remove('is-valid')
+          inputCity.classList.add('is-invalid')
+        }
+      })
+    </script>
 
     <div class="col-md-4">
       <label for="validationServer03" class="form-label">地址</label>

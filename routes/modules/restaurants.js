@@ -6,7 +6,8 @@ const Restaurant = require('../../models/restaurant')
 router.get('/new', (req, res) => {
   const newCategory = ['中東料理', '日式料理', '義式料理', '美式料理', '酒吧', '咖啡廳']
   const newRating = ['1', '2', '3', '4', '5']
-  res.render('new', { newCategory: newCategory, newRating: newRating })
+  const newCity = ['台北', '新北', '桃園', '新竹', '苗栗', '台中', '彰化', '雲林', '嘉義', '台南', '高雄', '屏東', '台東', '花蓮', '宜蘭', '基隆', '金門', '連江', '澎湖']
+  res.render('new', { newCategory: newCategory, newRating: newRating, newCity: newCity })
 })
 router.post('/', (req, res) => {
   return Restaurant.create(req.body)
@@ -23,6 +24,10 @@ router.get('/search', (req, res) => {
     sortData = { name: 'asc' }
   } else if (sortSelect === 'Z-A') {
     sortData = { name: 'desc' }
+  } else if (sortSelect === 'Category') {
+    sortData = { category: 'asc' }
+  } else if (sortSelect === 'City') {
+    sortData = { city: 'asc' }
   } else {
     sortData = { _id: 'asc' }
   }
@@ -56,9 +61,10 @@ router.get('/:id/edit', (req, res) => {
   const id = req.params.id
   const category = ['中東料理', '日式料理', '義式料理', '美式料理', '酒吧', '咖啡廳']
   const newRating = ['1', '2', '3', '4', '5']
+  const newCity = ['台北', '新北', '桃園', '新竹', '苗栗', '台中', '彰化', '雲林', '嘉義', '台南', '高雄', '屏東', '台東', '花蓮', '宜蘭', '基隆', '金門', '連江', '澎湖']
   return Restaurant.findById(id)
     .lean()
-    .then(restaurant => res.render('edit', { restaurant: restaurant, category: category, newRating: newRating }))
+    .then(restaurant => res.render('edit', { restaurant: restaurant, category: category, newRating: newRating, newCity: newCity }))
     .catch(error => console.log(error))
 })
 
