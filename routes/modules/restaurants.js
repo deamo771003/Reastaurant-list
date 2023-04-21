@@ -17,9 +17,18 @@ router.post('/', (req, res) => {
 // search
 router.get('/search', (req, res) => {
   const keyword = req.query.keyword
+  const sortSelect = req.query.sort
+  let sortData = {}
+  if (sortSelect === 'A-Z') {
+    sortData = { name: 'asc' }
+  } else if (sortSelect === 'Z-A') {
+    sortData = { name: 'desc' }
+  } else {
+    sortData = { _id: 'asc' }
+  }
   Restaurant.find()
     .lean()
-    .sort({ _id: 'asc' })
+    .sort(sortData)
     .then(restaurants => {
       const restaurantSearch = restaurants.filter(restaurant => {
         return restaurant.name.toLowerCase().includes(keyword.toLowerCase()) ||
@@ -29,6 +38,9 @@ router.get('/search', (req, res) => {
     })
     .catch(error => console.log(error))
 })
+
+// sort
+
 
 // show
 router.get('/:id', (req, res) => {
