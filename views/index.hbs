@@ -1,20 +1,36 @@
 <!-- search bar -->
 <div class="container search-bar">
   <div class="search-bar-outer">
-    <div class="search-bar-inner">
-      <form action="/restaurants/search" method="GET">
-        <h4 class="mb-2">尋找餐廳：</h4>
-        <div class="input-group">
-          <input type="text" name="keyword" class="form-control" placeholder="輸入餐廳、分類" aria-label="Restaurant Name..."
-            value="{{keyword}}" aria-describedby="search-button">
-          <div class="input-group-append">
-            <button class="btn btn-major" type="submit" id="search-button"><i class="fas fa-search"></i></button>
+    <div class="search-bar-inner d-flex bd-highlight">
+      <div class="me-auto p-2 bd-highlight">
+        <form action="/restaurants/search" method="GET">
+          <h4 class="mb-2">尋找餐廳：</h4>
+          <div class="input-group">
+            <input type="text" name="keyword" class="form-control" placeholder="輸入餐廳、分類" aria-label="Restaurant Name..."
+              value="{{keyword}}" aria-describedby="search-button">
+            <div class="input-group-append">
+              <button class="btn btn-major" type="submit" id="search-button"><i class="fas fa-search"></i></button>
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
+      <div class="p-2 bd-highlight">
+        {{!-- 餐廳排列方式select 靠右 --}}
+        <h4 class="mb-2">餐廳排序：</h4>
+        <select class="form-select" id="validationServer02" aria-describedby="validationServer02Feedback"
+          selectedIndex="" name="category" required>
+          <option selected disabled value="">Choose...</option>
+          {{#each newCategory}}
+          <option value="{{this}}">{{this}}</option>
+          {{/each}}
+        </select>
+      </div>
+
     </div>
   </div>
 </div>
+
+
 
 <!-- restaurant list -->
 <div class="container mt-5">
