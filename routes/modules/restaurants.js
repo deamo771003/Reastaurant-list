@@ -39,7 +39,7 @@ router.get('/search', (req, res) => {
         return restaurant.name.toLowerCase().includes(keyword.toLowerCase()) ||
           restaurant.category.toLowerCase().includes(keyword.toLowerCase())
       })
-      res.render('index', { restaurants: restaurantSearch, keyword: keyword })
+      res.render('index', { restaurants: restaurantSearch, keyword: keyword, sortSelect: sortSelect })
     })
     .catch(error => console.log(error))
 })

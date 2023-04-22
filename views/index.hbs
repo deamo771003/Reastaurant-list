@@ -21,7 +21,7 @@
           {{!-- <form action="/restaurants/search" method="GET"> --}}
             <h4 class="mb-2">餐廳排序：</h4>
             <select class="form-select" id="validationServer02" aria-describedby="validationServer02Feedback"
-              selectedIndex="" name="sort" onchange="this.form.submit()">
+              selectedIndex="" name="sort" onchange="this.form.submit()" value="{{sortSelect}}">
               <option selected disabled value="">Choose...</option>
               <option value="None">None</option>
               <option value="A-Z">A-Z</option>
