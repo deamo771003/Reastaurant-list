@@ -98,12 +98,12 @@ npm i passport-facebook
 
 15. 安裝 passport-local 套件
 ```
-npm i dotenv -d
+npm i passport-local
 ```
 
-16. 安裝 passport-local 套件
+16. 安裝 dotenv 套件
 ```
-npm i passport-local
+npm i dotenv -d
 ```
 
 17. 安裝 mongoose 套件
