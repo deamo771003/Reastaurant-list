@@ -2,11 +2,13 @@
 使用Node.js + Exoress 打造的美食網站，可快速且直覺搜尋與觀看餐廳內容
 
 ## 專案畫面
-login:
+Register:
+![image](https://raw.githubusercontent.com/deamo771003/Reastaurant-list/main/register.jpg)
+Login:
 ![image](https://raw.githubusercontent.com/deamo771003/Reastaurant-list/main/login.jpg)
-index:
+Index:
 ![image](https://raw.githubusercontent.com/deamo771003/Reastaurant-list/main/index3.jpg)
-show:
+Show:
 ![image](https://raw.githubusercontent.com/deamo771003/Reastaurant-list/main/show.jpg)
 
 ## Features 功能
