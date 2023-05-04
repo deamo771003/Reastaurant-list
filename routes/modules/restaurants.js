@@ -47,7 +47,7 @@ router.get('/search', (req, res) => {
 // sort
 
 
-// show
+// Detail
 router.get('/:id', (req, res) => {
   const id = req.params.id // 抓網址ID
   return Restaurant.findById(id)
