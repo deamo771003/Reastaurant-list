@@ -10,7 +10,12 @@ router.get('/new', (req, res) => {
   res.render('new', { newCategory: newCategory, newRating: newRating, newCity: newCity })
 })
 router.post('/', (req, res) => {
-  return Restaurant.create(req.body)
+  const userId = req.user._id // 抓取使用者ID，以下新增資料後一同匯入
+  const { name, category, city, location, phone, description, image, google_map, rating } = req.body
+  return Restaurant.create({
+    userId,
+    name, category, city, location, phone, description, image, google_map, rating
+  })
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
@@ -43,9 +48,6 @@ router.get('/search', (req, res) => {
     })
     .catch(error => console.log(error))
 })
-
-// sort
-
 
 // Detail
 router.get('/:id', (req, res) => {

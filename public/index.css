@@ -62,8 +62,8 @@ header {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-.card img {
-  height: 180px;
+.card-img-top {
+  height: 200px;
 }
 
 .card-title {
