@@ -141,5 +141,14 @@ Express is listening on localhost:3000
 http://localhost:3000
 ```
 
+23. 可使用以下帳號測試  
+```
+email: user1@example.com
+password: 12345678
+
+email: user2@example.com
+password: 12345678
+```
+
 ## Contributor 開發人員
 [JimmyLin](https://github.com/deamo771003)
