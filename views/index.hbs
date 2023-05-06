@@ -45,7 +45,7 @@
         {{#each restaurants}}
         <div class="card-row">
           <div class="card mb-3">
-            <img class="card-img-top p-1" style="height: 200px;" src="{{this.image}}" alt="{{name}}">
+            <img class="card-img-top p-1" src="{{this.image}}" alt="{{name}}">
             <div class="card-body p-3">
               <h6 class="card-title mb-1">{{this.name}}</h6>
 
@@ -64,7 +64,7 @@
 
               <div class="index-button mt-1 row-cols-sm-1">
                 <form action="/restaurants/{{this._id}}/delete?_method=DELETE" method="POST">
-                  <a href="/restaurants/{{this._id}}" class="index-detail-button" style="margin-right: 6px;">
+                  <a class="index-detail-button" href="/restaurants/{{this._id}}" style="margin-right: 6px;">
                     <i class="fa-solid fa-circle-info"></i>
                     Detail
                   </a>

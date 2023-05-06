@@ -109,13 +109,13 @@ header {
 }
 
 .detail-button {
-color: #4592af;
-text-decoration: none;
+  color: #4592af;
+  text-decoration: none;
 }
 
 .detail-button:hover {
   color: #226089;
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .index-edit-button {
@@ -152,21 +152,49 @@ text-decoration: none;
   background-color: transparent;
 }
 
+/* .detail {
+  display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+}
+
+.edit {
+  display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+}
+
+.delete {
+  display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+} */
+
+/* .navbar-brand {
+  font-size: 16px !important;
+} */
+
 @media screen and (max-width: 992px) {
 
   .card img {
-    height: 115px;
+    height: auto;
   }
+
 }
 
 @media screen and (max-width: 768px) {
 
   .restaurant-show-title {
-    font-size: 2rem;
+    font-size: 1rem;
   }
+  
 }
 
-@media screen and (max-width: 575px) {
+@media screen and (max-width: 576px) {
+
+  /* .navbar-brand {
+      font-size: 0.5rem !important;
+    } */
 
   .card img {
     height: auto;

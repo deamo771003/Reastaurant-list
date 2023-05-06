@@ -48,8 +48,8 @@ router.post('/register', (req, res) => {
         password: hash // 加鹽雜湊後存入資料庫
       }))
       .then(() => res.redirect('/'))
-      .catch(err => console.log(err))
   })
+    .catch(err => console.log(err))
 })
 
 // logout

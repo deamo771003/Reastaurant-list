@@ -1,14 +1,13 @@
 const bcrypt = require('bcryptjs')
-
 // 加入這段 code, 僅在非正式環境時, 使用 dotenv
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
-
 const Restaurant = require('../restaurant')
 const User = require('../user')
 const db = require('../../config/mongoose') // 呼叫mongoose裡的db
 const restaurantList = require('../../restaurant.json')
+
 const SEED_USER1 = {
   name: 'SEED_USER1',
   email: 'user1@example.com',

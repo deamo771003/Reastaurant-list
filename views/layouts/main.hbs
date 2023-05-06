@@ -9,12 +9,13 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
   <link rel="stylesheet" href="../../index.css">
+
 </head>
 
 <body>
   <header>
     <!-- navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="flex-wrap: nowrap;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid ms-4">
         <a class="navbar-brand" href="/">
           <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/6227/restaurant-list-logo.png"
@@ -22,38 +23,76 @@
           {{#if isAuthenticated}}{{ user.name }}{{/if}}
           餐廳清單
         </a>
-      </div>
-      {{!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button> --}}
-      {{!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> --}}
-
-        {{#if isAuthenticated}}
-        <div class="me-0">
-          <a class="navbar-brand" href="/restaurants/new">
-            <i class="fa-solid fa-square-plus fa-xl"></i>
-            加入餐廳
-          </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-2">
+            {{#if isAuthenticated}}
+            <li class="nav-item mt-2">
+              <a class="navbar-brand me-3" href="/restaurants/new">
+                <i class="fa-solid fa-square-plus fa-xl"></i>
+                加入餐廳
+              </a>
+            </li>
+            <li class="nav-item ms-1 mt-2">
+              <a class="navbar-brand me-4" href="/users/logout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                LOGOUT
+              </a>
+            </li>
+            {{else}}
+            <li class="nav-item mt-2">
+              <a class="navbar-brand me-4" href="/users/login">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                LOGIN
+              </a>
+            </li>
+            {{/if}}
+          </ul>
         </div>
-        <div class="me-4">
-          <a class="navbar-brand" href="/users/logout">
-            <i class="fa-solid fa-right-from-bracket"></i>
-            LOGOUT</a>
-        </div>
-        {{else}}
-        <div class="me-4">
-          <a class="navbar-brand" href="/users/login">
-            <i class="fa-solid fa-right-to-bracket"></i>
-            LOGIN</a>
-        </div>
-        {{/if}}
-
-
-        {{!--
-      </div> --}}
     </nav>
+
+    {{!-- <nav class="navbar navbar-expand-sm navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+          <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/6227/restaurant-list-logo.png"
+            width="30" height="30" class="d-inline-block align-top" alt="我的餐廳清單">
+          {{#if isAuthenticated}}{{ user.name }}{{/if}}
+          餐廳清單
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            {{#if isAuthenticated}}
+            <li class="nav-item">
+              <a class="navbar-brand" href="/restaurants/new">
+                <i class="fa-solid fa-square-plus fa-xl"></i>
+                加入餐廳
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="navbar-brand" href="/users/logout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                LOGOUT
+              </a>
+            </li>
+            {{else}}
+            <li class="nav-item">
+              <a class="navbar-brand" href="/users/login">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                LOGIN
+              </a>
+            </li>
+            {{/if}}
+          </ul>
+        </div>
+      </div>
+    </nav> --}}
 
     {{!-- 首圖 --}}
     <div class="banner"></div>
@@ -62,11 +101,11 @@
 
   {{{ body }}}
 
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"
+    integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN"
     crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"
+    integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/"
     crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/df13a7d288.js" crossorigin="anonymous"></script>
 
