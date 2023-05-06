@@ -22,6 +22,7 @@ router.post('/', (req, res) => {
 
 // search
 router.get('/search', (req, res) => {
+  const userId = req.user._id
   const keyword = req.query.keyword
   const sortSelect = req.query.sort
   let sortData = {}
@@ -36,7 +37,7 @@ router.get('/search', (req, res) => {
   } else {
     sortData = { _id: 'asc' }
   }
-  Restaurant.find()
+  Restaurant.find({ userId: userId })
     .lean()
     .sort(sortData)
     .then(restaurants => {
