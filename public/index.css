@@ -32,6 +32,7 @@ header {
 }
 
 .search-bar .search-bar-inner h4 {
+  font-size: 22px;
   color: #9b4b4b;
 }
 
@@ -170,10 +171,6 @@ header {
     grid-gap: 20px;
 } */
 
-/* .navbar-brand {
-  font-size: 16px !important;
-} */
-
 @media screen and (max-width: 992px) {
 
   .card img {
@@ -192,9 +189,9 @@ header {
 
 @media screen and (max-width: 576px) {
 
-  /* .navbar-brand {
-      font-size: 0.5rem !important;
-    } */
+  .search-bar-inner h4 {
+      font-size: 1rem !important;
+    }
 
   .card img {
     height: auto;
