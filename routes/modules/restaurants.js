@@ -9,15 +9,16 @@ router.get('/new', (req, res) => {
   const newCity = ['台北', '新北', '桃園', '新竹', '苗栗', '台中', '彰化', '雲林', '嘉義', '台南', '高雄', '屏東', '台東', '花蓮', '宜蘭', '基隆', '金門', '連江', '澎湖']
   res.render('new', { newCategory: newCategory, newRating: newRating, newCity: newCity })
 })
-router.post('/', (req, res) => {
+router.post('/', (req, res, next) => {
   const userId = req.user._id // 抓取使用者ID，以下新增資料後一同匯入
   const { name, category, city, location, phone, description, image, google_map, rating } = req.body
+  if (phone.length < 10) throw new Error('The length of the phone number is wrong')
   return Restaurant.create({
     userId,
     name, category, city, location, phone, description, image, google_map, rating
   })
     .then(() => res.redirect('/'))
-    .catch(error => console.log(error))
+    .catch(err => next(err))
 })
 
 // search

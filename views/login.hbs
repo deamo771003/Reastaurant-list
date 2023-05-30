@@ -6,11 +6,12 @@
       <form action="/users/login" method="POST">
         <div class="mb-3">
           <label class="mb-2" for="email">Email</label>
-          <input type="text" id="email" name="email" class="form-control" placeholder="abc123@qmail.com...">
+          <input type="text" id="email" name="email" class="form-control" placeholder="abc123@qmail.com..." required>
         </div>
         <div class="mb-3">
-          <label class="mb-2" for="password">Password</label>
-          <input type="password" id="password" name="password" class="form-control" placeholder="password...">
+          <label class="form-label mb-2" for="password">Password</label>
+          <input class="form-control" type="password" id="password01" name="password" placeholder="password..."
+            required>
         </div>
         <div class="text-center d-grid gap-2">
           <button type="submit" class="btn btn-primary btn-block">Login</button>

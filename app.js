@@ -45,19 +45,18 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }))
+// connect-flash
+app.use(flash())
 
 // 呼叫 Passport 函式並傳入 app，這條要寫在session之後 路由之前
 usePassport(app)
-
-// connect-flash
-app.use(flash())
 
 // run routes前檢查驗證 代表這組 middleware 會作用於所有的路由
 app.use((req, res, next) => {
   res.locals.isAuthenticated = req.isAuthenticated() // 把 req.isAuthenticated() 回傳的布林值，交接給 res 使用
   res.locals.user = req.user // 把user給res使用
-  res.locals.success_msg = req.flash('success_msg') // 設定 success_msg 訊息
-  res.locals.warning_msg = req.flash('warning_msg') // 設定 warning_msg 訊息
+  res.locals.success_messages = req.flash('success_messages') // res.locals設定 success_msg 訊息
+  res.locals.error_messages = req.flash('error_messages') // res.locals設定 warning_msg 訊息
   next()
 })
 

@@ -59,19 +59,18 @@
                 <i class="fas fa-star fa-xs"></i>
               </span>
 
-              <div class="index-button mt-1 row-cols-sm-1">
+              <div class="index-button d-flex">
+                <a class="index-detail-button" href="/restaurants/{{this._id}}" style="margin-right: 6px;">
+                  <i class="fa-solid fa-circle-info"></i>
+                  Detail
+                </a>
+
+                <a class="index-edit-button" href="/restaurants/{{this._id}}/edit">
+                  <i class="fa-solid fa-pen-to-square"></i>
+                  Edit
+                </a>
                 <form action="/restaurants/{{this._id}}/delete?_method=DELETE" method="POST"
                   onclick="return confirm(`確定要刪除 {{ this.name }} 嗎？`)">
-                  <a class="index-detail-button" href="/restaurants/{{this._id}}" style="margin-right: 6px;">
-                    <i class="fa-solid fa-circle-info"></i>
-                    Detail
-                  </a>
-
-                  <a class="index-edit-button" href="/restaurants/{{this._id}}/edit">
-                    <i class="fa-solid fa-pen-to-square"></i>
-                    Edit
-                  </a>
-
                   <button class="index-delete-button" type="submit">
                     <i class="fa-solid fa-trash-can"></i>
                     Delete
