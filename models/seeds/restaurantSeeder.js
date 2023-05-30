@@ -6,73 +6,37 @@ if (process.env.NODE_ENV !== 'production') {
 const Restaurant = require('../restaurant')
 const User = require('../user')
 const db = require('../../config/mongoose') // 呼叫mongoose裡的db
-const restaurantList = require('../../restaurant.json')
-
-const SEED_USER1 = {
-  name: 'SEED_USER1',
-  email: 'user1@example.com',
-  password: '12345678'
-}
-const SEED_USER2 = {
-  name: 'SEED_USER2',
-  email: 'user2@example.com',
-  password: '12345678'
-}
+const { users, restaurants } = require('../data')
 
 // Mongoose 連線成功
 db.once('open', () => {
-  bcrypt // 加鹽雜湊
-    .genSalt(10)
-    .then(salt => bcrypt.hash(SEED_USER1.password, salt))
-    .then(hash => User.create({ // databast建立 seeder 資料
-      name: SEED_USER1.name,
-      email: SEED_USER1.email,
-      password: hash
-    }))
-    .then(async user => {
-      const userId = user._id
-      for (let i = 0; i < 3; i++) {
-        const restaurant = {
-          name: restaurantList.results[i].name,
-          category: restaurantList.results[i].category,
-          image: restaurantList.results[i].image,
-          location: restaurantList.results[i].location,
-          phone: restaurantList.results[i].phone,
-          google_map: restaurantList.results[i].google_map,
-          rating: restaurantList.results[i].rating,
-          description: restaurantList.results[i].description,
-          userId: userId
-        }
-        await Restaurant.create(restaurant)
-      }
+  Promise.all(
+    users.map((user, user_index) => {
+      // 創建使用者資料(user): model.create
+      return bcrypt
+        .genSalt(10)
+        .then(salt => bcrypt.hash(user.password, salt))
+        .then(hash => User.create({
+          name: user.name,
+          email: user.email,
+          password: hash
+        }))
+        .then((user) => {
+          console.log('user created')
+          const userRestaurant = []
+          restaurants.forEach((restaurant, rest_index) => {
+            if (rest_index >= 3 * user_index && rest_index < 3 * (user_index + 1)) { // 每個user加入3間餐廳
+              restaurant.userId = user._id
+              userRestaurant.push(restaurant)
+            }
+          })
+          return Restaurant.create(userRestaurant)
+        })
     })
-  bcrypt // 加鹽雜湊
-    .genSalt(10)
-    .then(salt => bcrypt.hash(SEED_USER2.password, salt))
-    .then(hash => User.create({ // databast建立 seeder 資料
-      name: SEED_USER2.name,
-      email: SEED_USER2.email,
-      password: hash
-    }))
-    .then(async user => {
-      const userId = user._id
-      for (let i = 3; i < 6; i++) {
-        const restaurant = {
-          name: restaurantList.results[i].name,
-          category: restaurantList.results[i].category,
-          image: restaurantList.results[i].image,
-          location: restaurantList.results[i].location,
-          phone: restaurantList.results[i].phone,
-          google_map: restaurantList.results[i].google_map,
-          rating: restaurantList.results[i].rating,
-          description: restaurantList.results[i].description,
-          userId: userId
-        }
-        await Restaurant.create(restaurant)
-      }
-    })
-    .then(() => {
-      console.log('done')
-      process.exit()
-    })
+  ).then(() => {
+    console.log('所有使用者與餐廳資料創建完成')
+    process.exit()
+  }).catch(error => {
+    console.log(error)
+  })
 })

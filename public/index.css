@@ -153,24 +153,6 @@ header {
   background-color: transparent;
 }
 
-/* .detail {
-  display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 20px;
-}
-
-.edit {
-  display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 20px;
-}
-
-.delete {
-  display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 20px;
-} */
-
 @media screen and (max-width: 992px) {
 
   .card img {

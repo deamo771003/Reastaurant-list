@@ -78,7 +78,7 @@ router.put('/:id', (req, res) => {
       Object.assign(restaurant, req.body)
       return restaurant.save()
     })
-    .then(() => res.redirect(`/`))
+    .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
 
@@ -92,3 +92,4 @@ router.delete('/:id/delete', (req, res) => {
 })
 
 module.exports = router
+

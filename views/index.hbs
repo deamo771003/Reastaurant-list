@@ -18,19 +18,16 @@
         </div>
         {{!-- 餐廳排列方式select 靠右 --}}
         <div class="p-2 bd-highlight index-sort">
-          {{!-- <form action="/restaurants/search" method="GET"> --}}
-            <h4 class="mb-2">餐廳排序：</h4>
-            <select class="form-select" id="validationServer02" aria-describedby="validationServer02Feedback"
-              selectedIndex="" name="sort" onchange="this.form.submit()" value="{{sortSelect}}">
-              <option selected disabled value="">Choose...</option>
-              <option value="None">None</option>
-              <option value="A-Z">A-Z</option>
-              <option value="Z-A">Z-A</option>
-              <option value="Category">Category</option>
-              <option value="City">City</option>
-            </select>
-            {{!--
-          </form> --}}
+          <h4 class="mb-2">餐廳排序：</h4>
+          <select class="form-select" id="validationServer02" aria-describedby="validationServer02Feedback"
+            selectedIndex="" name="sort" onchange="this.form.submit()" value="{{sortSelect}}">
+            <option selected disabled value="">Choose...</option>
+            <option value="None">None</option>
+            <option value="A-Z">A-Z</option>
+            <option value="Z-A">Z-A</option>
+            <option value="Category">Category</option>
+            <option value="City">City</option>
+          </select>
         </div>
       </div>
     </form>
@@ -63,7 +60,8 @@
               </span>
 
               <div class="index-button mt-1 row-cols-sm-1">
-                <form action="/restaurants/{{this._id}}/delete?_method=DELETE" method="POST">
+                <form action="/restaurants/{{this._id}}/delete?_method=DELETE" method="POST"
+                  onclick="return confirm(`確定要刪除 {{ this.name }} 嗎？`)">
                   <a class="index-detail-button" href="/restaurants/{{this._id}}" style="margin-right: 6px;">
                     <i class="fa-solid fa-circle-info"></i>
                     Detail

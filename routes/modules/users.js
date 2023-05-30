@@ -32,23 +32,24 @@ router.post('/register', (req, res) => {
     return res.render('register', { errors, name, email, password, confirmPassword })
   }
 
-  User.findOne({ email }).then(user => {
-    if (user) {
-      errors.push({ message: '這個 email 已經註冊過了。' })
-      return res.render('register', { errors, name, email, password, confirmPassword })
-    }
+  User.findOne({ email })
+    .then(user => {
+      if (user) {
+        errors.push({ message: '這個 email 已經註冊過了。' })
+        return res.render('register', { errors, name, email, password, confirmPassword })
+      }
 
-    // 加密 加鹽雜湊
-    return bcrypt
-      .genSalt(10) // 加鹽,係數10
-      .then(salt => bcrypt.hash(password, salt)) // 使用者密碼加鹽後雜湊
-      .then(hash => User.create({
-        name,
-        email,
-        password: hash // 加鹽雜湊後存入資料庫
-      }))
-      .then(() => res.redirect('/'))
-  })
+      // 加密 加鹽雜湊
+      return bcrypt // return是等待 bcrypt 完成 回傳資訊後再進行下面的User.create
+        .genSalt(10) // 加鹽,係數10
+        .then(salt => bcrypt.hash(password, salt)) // 使用者密碼加鹽後雜湊
+        .then(hash => User.create({
+          name,
+          email,
+          password: hash // 加鹽雜湊後存入資料庫
+        }))
+        .then(() => res.redirect('/'))
+    })
     .catch(err => console.log(err))
 })
 
