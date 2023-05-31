@@ -1,32 +1,16 @@
 <div class="ms-5 me-5 mt-3">
+  {{> message}}
   <form class="row g-3" action="/restaurants/{{ restaurant._id }}?_method=PUT" method="POST">
     <div class="col-md-4">
-      <label for="validationServer01" class="form-label">餐廳名稱</label>
+      <label for="validationServer01" class="form-label">餐廳名稱<span
+          style="color: brown; font-size:5px;">*必填</span></label>
       <input type="name" class="form-control" id="validationServer01" placeholder="name" name="name"
         value="{{restaurant.name}}" required>
-      <div id="validationServer01Feedback" class="valid-feedback">
-        Looks good!
-      </div>
-      <div id="validationServer01Feedback" class="invalid-feedback">
-        Input error!
-      </div>
     </div>
-    <script>
-      const input = document.getElementById('validationServer01')
-      input.classList.add('is-valid')
-      input.addEventListener("change", function () {
-        if (input.value.length > 0) {
-          input.classList.remove('is-invalid')
-          input.classList.add('is-valid')
-        } else {
-          input.classList.remove('is-valid')
-          input.classList.add('is-invalid')
-        }
-      })
-    </script>
 
     <div class="col-md-3">
-      <label for="validationServer02" class="form-label">餐廳類別</label>
+      <label for="validationServer02" class="form-label">餐廳類別<span
+          style="color: brown; font-size:5px;">*必填</span></label>
       <select class="form-select" id="validationServer02" aria-describedby="validationServer02Feedback" selectedIndex=""
         name="category" required>
         <option value="Choose" disabled>Choose...</option>
@@ -38,29 +22,10 @@
         {{/if}}
         {{/each}}
       </select>
-      <div id="validationServer02Feedback" class="valid-feedback">
-        Looks good!
-      </div>
-      <div id="validationServer02Feedback" class="invalid-feedback">
-        Please select a valid state.
-      </div>
     </div>
-    <script>
-      const select = document.getElementById('validationServer02')
-      select.classList.add('is-valid')
-      select.addEventListener("change", function () {
-        if (select.selectedIndex > -1) {
-          select.classList.remove('is-invalid')
-          select.classList.add('is-valid')
-        } else {
-          select.classList.remove('is-valid')
-          select.classList.add('is-invalid')
-        }
-      })
-    </script>
 
     <div class="col-md-3">
-      <label for="validationServer09" class="form-label">城市</label>
+      <label for="validationServer09" class="form-label">城市<span style="color: brown; font-size:5px;">*必填</span></label>
       <select class="form-select" id="validationServer09" aria-describedby="validationServer09Feedback" selectedIndex=""
         name="city" required>
         <option selected disabled value="">Choose...</option>
@@ -72,153 +37,44 @@
         {{/if}}
         {{/each}}
       </select>
-      <div id="validationServer09Feedback" class="valid-feedback">
-        Looks good!
-      </div>
-      <div id="validationServer09Feedback" class="invalid-feedback">
-        Please select a valid state.
-      </div>
     </div>
-    <script>
-      const inputCity = document.getElementById('validationServer09')
-      inputCity.classList.add('is-valid')
-      inputCity.addEventListener("change", function () {
-        if (inputCity.selectedIndex > -1) {
-          inputCity.classList.remove('is-invalid')
-          inputCity.classList.add('is-valid')
-        } else {
-          inputCity.classList.remove('is-valid')
-          inputCity.classList.add('is-invalid')
-        }
-      })
-    </script>
 
     <div class="col-md-4">
-      <label for="validationServer03" class="form-label">地址</label>
+      <label for="validationServer03" class="form-label">地址<span style="color: brown; font-size:5px;">*必填</span></label>
       <input type="text" class="form-control" id="validationServer03" placeholder="台北市北北區南南路123號3F" name="location"
         value="{{restaurant.location}}" required>
-      <div id="validationServer02Feedback" class="valid-feedback">
-        Looks good!
-      </div>
-      <div id="validationServer02Feedback" class="invalid-feedback">
-        Input error!
-      </div>
-      <script>
-        const inputAddress = document.getElementById('validationServer03')
-        inputAddress.classList.add('is-valid')
-        inputAddress.addEventListener("change", function () {
-          if (inputAddress.value.length > 0) {
-            inputAddress.classList.remove('is-invalid')
-            inputAddress.classList.add('is-valid')
-          } else {
-            inputAddress.classList.remove('is-valid')
-            inputAddress.classList.add('is-invalid')
-          }
-        })
-      </script>
     </div>
+
     <div class="col-md-4">
-      <label for="validationServer04" class="form-label">手機號碼</label>
+      <label for="validationServer04" class="form-label">電話號碼<span
+          style="color: brown; font-size:5px;">*必填</span></label>
       <input type="text" class="form-control" id="validationServer04" name="phone" value="{{restaurant.phone}}"
         required>
-      <div id="validationServer04Feedback" class="valid-feedback">
-        Looks good!
-      </div>
-      <div id="validationServer04Feedback" class="invalid-feedback">
-        Input error!
-      </div>
-      <script>
-        const inputTel = document.getElementById('validationServer04')
-        inputTel.classList.add('is-valid')
-        inputTel.addEventListener("change", function () {
-          if (inputTel.value.length >= 10) {
-            inputTel.classList.remove('is-invalid')
-            inputTel.classList.add('is-valid')
-          } else {
-            inputTel.classList.remove('is-valid')
-            inputTel.classList.add('is-invalid')
-          }
-        })
-      </script>
     </div>
 
     <div class="col-md-4">
-      <label for="validationServer05" class="form-label">介紹</label>
+      <label for="validationServer05" class="form-label">介紹<span style="color: brown; font-size:5px;">*必填</span></label>
       <input type="text" class="form-control" id="validationServer05" name="description"
         value="{{restaurant.description}}" required>
-      <div id="validationServer05Feedback" class="valid-feedback">
-        Looks good!
-      </div>
-      <div id="validationServer05Feedback" class="invalid-feedback">
-        Input error!
-      </div>
-      <script>
-        const inputIntroduce = document.getElementById('validationServer05')
-        inputIntroduce.classList.add('is-valid')
-        inputIntroduce.addEventListener("change", function () {
-          if (inputIntroduce.value.length > 0) {
-            inputIntroduce.classList.remove('is-invalid')
-            inputIntroduce.classList.add('is-valid')
-          } else {
-            inputIntroduce.classList.remove('is-valid')
-            inputIntroduce.classList.add('is-invalid')
-          }
-        })
-      </script>
     </div>
 
     <div class="col-md-4">
-      <label for="validationServer06" class="form-label">照片網址</label>
+      <label for="validationServer06" class="form-label">照片網址<span
+          style="color: brown; font-size:5px;">*必填</span></label>
       <input type="text" class="form-control" id="validationServer06" name="image" value="{{restaurant.image}}"
         required>
-      <div id="validationServer06Feedback" class="valid-feedback">
-        Looks good!
-      </div>
-      <div id="validationServer06Feedback" class="invalid-feedback">
-        Input error!
-      </div>
-      <script>
-        const inputUrl = document.getElementById('validationServer06')
-        inputUrl.classList.add('is-valid')
-        inputUrl.addEventListener("change", function () {
-          if (inputUrl.value.length > 0) {
-            inputUrl.classList.remove('is-invalid')
-            inputUrl.classList.add('is-valid')
-          } else {
-            inputUrl.classList.remove('is-valid')
-            inputUrl.classList.add('is-invalid')
-          }
-        })
-      </script>
     </div>
 
     <div class="col-md-4">
-      <label for="validationServer07" class="form-label">Google Map 網址</label>
+      <label for="validationServer07" class="form-label">Google Map 網址<span
+          style="color: brown; font-size:5px;">*必填</span></label>
       <input type="text" class="form-control" id="validationServer07" name="google_map"
         value="{{restaurant.google_map}}" required>
-      <div id="validationServer07Feedback" class="valid-feedback">
-        Looks good!
-      </div>
-      <div id="validationServer07Feedback" class="invalid-feedback">
-        Input error!
-      </div>
-      <script>
-        const inputMap = document.getElementById('validationServer07')
-        inputMap.classList.add('is-valid')
-        inputMap.addEventListener("change", function () {
-          if (inputMap.value.length > 0) {
-            inputMap.classList.remove('is-invalid')
-            inputMap.classList.add('is-valid')
-          } else {
-            inputMap.classList.remove('is-valid')
-            inputMap.classList.add('is-invalid')
-          }
-        })
-      </script>
     </div>
 
     <div class="col-md-3">
-      <label for="validationServer08" class="form-label">1-5星評分</label>
+      <label for="validationServer08" class="form-label">1-5星評分<span
+          style="color: brown; font-size:5px;">*必填</span></label>
       <select class="form-select" id="validationServer08" aria-describedby="validationServer08Feedback" selectedIndex=""
         name="rating" required>
         <option selected disabled value="">Choose...</option>
@@ -230,34 +86,13 @@
         {{/if}}
         {{/each}}
       </select>
-      <div id="validationServer08Feedback" class="valid-feedback">
-        Looks good!
-      </div>
-      <div id="validationServer08Feedback" class="invalid-feedback">
-        Please select a valid state.
-      </div>
     </div>
-    <script>
-      const inputRating = document.getElementById('validationServer08')
-      inputRating.classList.add('is-valid')
-      inputRating.addEventListener("change", function () {
-        if (inputRating.selectedIndex > -1) {
-          inputRating.classList.remove('is-invalid')
-          inputRating.classList.add('is-valid')
-        } else {
-          inputRating.classList.remove('is-valid')
-          inputRating.classList.add('is-invalid')
-        }
-      })
-    </script>
 
     <div class="col-12">
       <button class="btn btn-success submit-button" type="submit">Submit</button>
       <a href="/restaurants/{{restaurant._id}}">
         <button class="btn btn-secondary cancel-button" type="button">Cancel</button>
       </a>
-
-
     </div>
   </form>
 </div>

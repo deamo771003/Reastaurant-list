@@ -8,12 +8,10 @@ const usePassport = require('./config/passport')
 const flash = require('connect-flash')
 const routes = require('./routes')
 const PORT = process.env.PORT || 3000
-
 // 加入這段 code, 僅在非正式環境時, 使用 dotenv
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
-
 const app = express()
 const handlebars = require('handlebars')
 

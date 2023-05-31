@@ -17,29 +17,26 @@ router.post('/login', passport.authenticate('local', {
 
 // register
 router.get('/register', (req, res) => {
-  return res.render('register')
+  const { name, email, password, confirmPassword } = req.flash('inputValues')[0] || {} // 變數帶入req.flash存儲的值
+  return res.render('register', { name, email, password, confirmPassword })
 })
 
-router.post('/register', (req, res) => {
+router.post('/register', (req, res, next) => {
   const { name, email, password, confirmPassword } = req.body
-  const errors = []
   if (!email || !password || !confirmPassword) {
-    errors.push({ message: 'email、password、confirmPassword 是必填。' })
+    req.flash('inputValues', { name, email, password, confirmPassword }) // 如有錯誤則先將錯誤值存入req.flash的變數inputValues
+    throw new Error('email、password、confirmPassword 是必填。')
   }
   if (password !== confirmPassword) {
-    errors.push({ message: 'password 與 confirmPassword 不符。' })
+    req.flash('inputValues', { name, email, password, confirmPassword })
+    throw new Error('password 與 confirmPassword 不符。')
   }
-  if (errors.length) {
-    return res.render('register', { errors, name, email, password, confirmPassword })
-  }
-
   User.findOne({ email })
     .then(user => {
       if (user) {
-        errors.push({ message: '這個 email 已經註冊過了。' })
-        return res.render('register', { errors, name, email, password, confirmPassword })
+        req.flash('inputValues', { name, email, password, confirmPassword })
+        throw new Error('這個 email 已經註冊過了。')
       }
-
       // 加密 加鹽雜湊
       return bcrypt // return是等待 bcrypt 完成 回傳資訊後再進行下面的User.create
         .genSalt(10) // 加鹽,係數10
@@ -51,7 +48,7 @@ router.post('/register', (req, res) => {
         }))
         .then(() => res.redirect('/'))
     })
-    .catch(err => console.log(err))
+    .catch(err => next(err))
 })
 
 // logout
