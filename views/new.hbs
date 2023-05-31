@@ -2,7 +2,7 @@
   {{> message}}
   <form class="row g-3" action="/restaurants" method="POST">
     <div class="col-md-4">
-      <label for="validationServer01" class="form-label">餐廳名稱<span
+      <label for="validationServer01" class="form-label">餐廳名稱<span class="ms-1"
           style="color: brown; font-size:5px;">*必填</span></label>
       <input type="text" class="form-control" id="validationServer01" placeholder="name" name="name" value="{{name}}"
         required>
@@ -11,7 +11,7 @@
 
 
     <div class="col-md-3">
-      <label for="validationServer02" class="form-label">餐廳類別<span
+      <label for="validationServer02" class="form-label">餐廳類別<span class="ms-1"
           style="color: brown; font-size:5px;">*必填</span></label>
       <select class="form-select" id="validationServer02" aria-describedby="validationServer02Feedback" selectedIndex=""
         name="category" required>
@@ -25,7 +25,8 @@
 
 
     <div class="col-md-3">
-      <label for="validationServer09" class="form-label">城市<span style="color: brown; font-size:5px;">*必填</span></label>
+      <label for="validationServer09" class="form-label">城市<span class="ms-1"
+          style="color: brown; font-size:5px;">*必填</span></label>
       <select class="form-select" id="validationServer09" aria-describedby="validationServer09Feedback" selectedIndex=""
         name="city" required>
         <option selected disabled value="">Choose...</option>
@@ -38,13 +39,14 @@
 
 
     <div class="col-md-4">
-      <label for="validationServer03" class="form-label">地址<span style="color: brown; font-size:5px;">*必填</span></label>
+      <label for="validationServer03" class="form-label">地址<span class="ms-1"
+          style="color: brown; font-size:5px;">*必填</span></label>
       <input type="text" class="form-control" id="validationServer03" value="{{location}}" placeholder="台北市北北區南南路123號3F"
         name="location" required>
 
     </div>
     <div class="col-md-4">
-      <label for="validationServer04" class="form-label">電話號碼<span
+      <label for="validationServer04" class="form-label">電話號碼<span class="ms-1"
           style="color: brown; font-size:5px;">*必填</span></label>
       <input type="number" class="form-control" id="validationServer04" value="{{phone}}" placeholder="EX: 02-12341234"
         name="phone" required>
@@ -52,27 +54,28 @@
     </div>
 
     <div class="col-md-4">
-      <label for="validationServer05" class="form-label">介紹<span style="color: brown; font-size:5px;">*必填</span></label>
+      <label for="validationServer05" class="form-label">介紹<span class="ms-1"
+          style="color: brown; font-size:5px;">*必填</span></label>
       <input type="text" class="form-control" id="validationServer05" value="{{description}}" name="description"
         required>
 
     </div>
 
     <div class="col-md-4">
-      <label for="validationServer06" class="form-label">照片網址<span
+      <label for="validationServer06" class="form-label">照片網址<span class="ms-1"
           style="color: brown; font-size:5px;">*必填</span></label>
       <input type="text" class="form-control" id="validationServer06" value="{{image}}" name="image" required>
 
     </div>
 
     <div class="col-md-4">
-      <label for="validationServer07" class="form-label">Google Map 網址<span
+      <label for="validationServer07" class="form-label">Google Map 網址<span class="ms-1"
           style="color: brown; font-size:5px;">*必填</span></label>
       <input type="text" class="form-control" id="validationServer07" value="{{google_map}}" name="google_map" required>
     </div>
 
     <div class="col-md-3">
-      <label for="validationServer08" class="form-label">1-5星評分<span
+      <label for="validationServer08" class="form-label">1-5星評分<span class="ms-1"
           style="color: brown; font-size:5px;">*必填</span></label>
       <select class="form-select" id="validationServer08" aria-describedby="validationServer08Feedback" selectedIndex=""
         name="rating" required>
